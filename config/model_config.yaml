@@ -1,0 +1,40 @@
+# Data Configuration
+data:
+  train_path: "data/train.csv"
+  feature_prefix: "feature_"
+  target_column: "resp"
+  weight_column: "weight"
+  date_column: "date"
+  n_features: 130
+
+# Feature Engineering
+features:
+  pca:
+    variance_threshold: 0.95
+    random_state: 42
+  
+# Model Configurations  
+models:
+  autoencoder:
+    encoding_dim: 64
+    hidden_dims: [128, 64, 32]
+    dropout_rate: 0.2
+    epochs: 50
+    batch_size: 1024
+    
+  xgboost:
+    n_estimators: 500
+    max_depth: 6
+    learning_rate: 0.1
+    subsample: 0.8
+    random_state: 42
+    
+  ensemble:
+    autoencoder_weight: 0.3
+    xgboost_weight: 0.7
+
+# Evaluation
+evaluation:
+  cv_folds: 5
+  test_size: 0.2
+  random_state: 42
