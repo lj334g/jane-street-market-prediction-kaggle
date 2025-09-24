@@ -16,7 +16,6 @@ logger = logging.getLogger(__name__)
 class HFTDataLoader:
     """
     Load and validate 500 days of high-frequency trading data across 130 features.
-    Extracted from original notebook implementation.
     """
     
     def __init__(self, data_path: str, config: Optional[Dict] = None):
